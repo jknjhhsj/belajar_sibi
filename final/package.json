@@ -1,0 +1,10 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "echo 'Aplikasi ini memakai Tailwind CDN, tidak perlu build.'",
+        "dev": "echo 'Jalankan: php artisan serve'"
+    },
+    "devDependencies": {}
+}

@@ -1,0 +1,43 @@
+=== BELAJAR SIBI — Cara Menjalankan ===
+
+SYARAT:
+- Laragon (PHP 8.4+)
+- Composer sudah terinstall
+
+──────────────────────────────────
+LANGKAH 1 — Letakkan folder
+──────────────────────────────────
+Ekstrak zip ke:
+  C:\laragon\www\project-fixed\
+
+──────────────────────────────────
+LANGKAH 2 — Buka Terminal Laragon
+──────────────────────────────────
+cd project-fixed
+php artisan migrate:fresh --seed
+php artisan serve
+
+──────────────────────────────────
+LANGKAH 3 — Buka browser
+──────────────────────────────────
+http://localhost:8000
+
+──────────────────────────────────
+LOGIN ADMIN
+──────────────────────────────────
+Email    : admin@SLB.id
+Password : SLB12345
+
+──────────────────────────────────
+AKSES DARI HP (WiFi sama)
+──────────────────────────────────
+1. php artisan serve --host=0.0.0.0 --port=8000
+2. Cari IP: ipconfig → IPv4 Address
+3. Buka di HP: http://[IP]:8000
+
+──────────────────────────────────
+JIKA ADA ERROR
+──────────────────────────────────
+php artisan optimize:clear
+php artisan migrate:fresh --seed
+php artisan serve
