@@ -11,11 +11,11 @@ WORKDIR /app
 COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
-
 RUN if [ -f package.json ]; then npm install && npm run build; fi
-
 RUN if [ ! -f .env ]; then cp .env.example .env; fi
+RUN mkdir -p database && touch database/database.sqlite \
+    && chmod -R 777 storage bootstrap/cache database
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "touch database/database.sqlite && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
+CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
